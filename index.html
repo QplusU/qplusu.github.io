@@ -22,7 +22,7 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap">
   <meta name="theme-color" content="#0B1426">
   <link rel="icon" href="assets/logo-mark.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="src/styles.css?v=20261012s">
+  <link rel="stylesheet" href="src/styles.css?v=20261012v">
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
@@ -292,10 +292,11 @@
     <div class="wrap">
       <p>We build advanced technology to help people, not only to protect systems. Post-quantum cryptography, optimization and AI matter because of what they make possible for the people inside an organization: being safer, more confident, and ready for the change ahead.</p>
       <p>© 2026 Q+U · <a href="https://github.com/QplusU/qplusu.github.io">Site source</a></p>
+      <p class="credit">Background: the Artemis II crew captured this photo of our galaxy, the Milky Way. NASA, April 9, 2026. <a href="https://www.nasa.gov/image-article/starstruck/" rel="noopener">nasa.gov/image-article/starstruck</a>. The universe stands for the unknown. Cyber risk is the known unknown: we know the quantum threat is coming and that the migration must happen; what is unknown is where to start and in what order. Q+U exists to make that order known.</p>
     </div>
   </footer>
 
-  <script src="src/radar.js?v=20261012l" defer></script>
+  <script src="src/radar.js?v=20261012t" defer></script>
   <script src="src/wave.js?v=20261012m" defer></script>
   <script>
     (function(){
@@ -312,6 +313,12 @@
         window.addEventListener('pointermove', function(e){ tx = e.clientX; ty = e.clientY; if (!on) { on = true; x = tx; y = ty; root.style.setProperty('--lens', '1'); } if (!raf) raf = requestAnimationFrame(tick); }, { passive: true });
         document.addEventListener('pointerleave', function(){ on = false; root.style.setProperty('--lens', '0'); });
         document.addEventListener('visibilitychange', function(){ if (document.hidden) { on = false; root.style.setProperty('--lens', '0'); } });
+      })();
+      // galaxy: full in the hero, dimmed once the reader is in the text
+      (function(){
+        var root = document.documentElement, hero = document.querySelector('.hero');
+        function upd(){ var h = hero ? hero.offsetHeight : 800; var g = Math.max(0.25, 1 - Math.max(0, window.scrollY - h * 0.5) / (h * 0.6)); root.style.setProperty('--gal', g.toFixed(2)); }
+        window.addEventListener('scroll', upd, { passive: true }); window.addEventListener('resize', upd, { passive: true }); upd();
       })();
       var pill = document.getElementById('pill'), more = document.getElementById('more');
       more.addEventListener('click', function(){ var o = pill.classList.toggle('open'); more.setAttribute('aria-expanded', o); });

@@ -242,7 +242,7 @@
 
     // ---- rim labels, standing up at the rim
     ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
-    ctx.font = `600 10px ${FONT}`; ctx.letterSpacing = '0.16em';
+    ctx.font = `600 12px ${FONT}`; ctx.letterSpacing = '0.16em';
     for (const [txt, a] of [['MAP', 0.04], ['SEQUENCE', 0.36], ['MIGRATE', 0.80]]) {
       const [x, y] = P(...polar(a, 1.12, 0.06));
       const on = a < sweep && vis > 0.5;
@@ -251,15 +251,15 @@
     }
     {
       const [x, y] = P(...polar((FREEZE.from + FREEZE.to) / 2, 0.8, 0.2));
-      ctx.fillStyle = SOFT; ctx.font = `500 9px ${FONT}`; ctx.fillText('QUARTER CLOSE', x, y);
+      ctx.fillStyle = SOFT; ctx.font = `500 11px ${FONT}`; ctx.fillText('QUARTER CLOSE', x, y);
     }
 
     // ---- exposure readout
     const exposure = Math.round(100 - 100 * (migrated / total));
     ctx.textAlign = 'left';
-    ctx.font = `600 10px ${FONT}`; ctx.letterSpacing = '0.16em';
+    ctx.font = `600 12px ${FONT}`; ctx.letterSpacing = '0.16em';
     ctx.fillStyle = SOFT; ctx.fillText('EXPOSURE', 12, H - 34);
-    ctx.font = `600 22px ${FONT}`; ctx.letterSpacing = '-0.02em';
+    ctx.font = `600 26px ${FONT}`; ctx.letterSpacing = '-0.02em';
     ctx.fillStyle = FG; ctx.fillText(exposure + '%', 12, H - 14);
     ctx.fillStyle = rgba(B, 0.2); ctx.fillRect(80, H - 20, 110, 2);
     ctx.fillStyle = rgba(A, 1); ctx.fillRect(80, H - 20, 110 * (exposure / 100), 2);
