@@ -17,7 +17,7 @@ Open work for the Q+U website and the material it presents. Ticked items are don
 - [ ] Source or drop the elevator-pitch cost figures (ransomware per hour, $10.5 trillion cybercrime, $53,000 downtime per hour, 91% without a PQC roadmap, half of enterprises unprepared); none are on the site yet
 - [ ] Source the "founding research" line in The problem (it refers to the NYU thesis; link or cite it there)
 - [ ] Confirm the ISACA 2025 figures (5%, 55%, 30%) and the DBIR 2026 figures (62%, 48%, 15 techniques) against the reports and add links
-- [ ] Decide whether competition, business model, "what we must prove next" and open questions belong on a public site or in an investor page
+- [x] Competition and business model removed from the public site (2026-10-12); "what we must prove next" and open questions still public, decide
 - [ ] Settle the name: Q+U is live; Q+U+Bit, Qrypto and Enqrypt were also proposed
 - [ ] Team bios: confirm each person's wording; add Daniel's university if wanted
 - [x] Team photos and LinkedIn links
