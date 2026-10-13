@@ -17,7 +17,7 @@
   const SYS = [];
   for (let i = 0; i < 34; i++) SYS.push({ a: i / 34 + (rnd() - 0.5) * 0.012, r: 0.26 + rnd() * 0.66, c: 1 + Math.floor(rnd() * 3), j: rnd() });
   const LINKS = [[0, 3], [3, 7], [7, 12], [5, 9], [14, 20], [20, 27], [16, 24], [25, 31], [10, 18], [2, 29]];
-  const FREEZE = { from: 0.58, to: 0.70 };
+  const FREEZE = null;
 
   let W = 0, H = 0, DPR = 1;
   function resize() {
@@ -57,12 +57,7 @@
     new IntersectionObserver((es) => { running = es[0].isIntersecting; if (running && !reduce) requestAnimationFrame(frame); }, { threshold: 0.05 }).observe(canvas);
   }
 
-  function sweepAt(phase) {
-    const span = 1 - (FREEZE.to - FREEZE.from);
-    let p = Math.min(phase / 0.78, 1) * span;
-    if (p > FREEZE.from) p += (FREEZE.to - FREEZE.from);
-    return p;
-  }
+  function sweepAt(phase) { return Math.min(phase / 0.78, 1); }
 
   // ---- camera ----
   // world: disc in the x/z plane, y up. radius 1.
@@ -122,19 +117,6 @@
     for (let k = 0; k < 12; k++) {
       const a = k / 12; const [x1, y1] = P(...polar(a, 0.12)); const [x2, y2] = P(...polar(a, 1));
       ctx.strokeStyle = rgba(B, 0.07); ctx.beginPath(); ctx.moveTo(x1, y1); ctx.lineTo(x2, y2); ctx.stroke();
-    }
-    // freeze wedge: dashed outline, faint fill, short dashed wall at the rim
-    {
-      ctx.setLineDash([3, 5]); ctx.strokeStyle = rgba(B, 0.4); ctx.fillStyle = rgba(B, 0.05);
-      ctx.beginPath();
-      const [cx0, cy0] = P(0, 0, 0); ctx.moveTo(cx0, cy0);
-      for (let i = 0; i <= 24; i++) { const a = FREEZE.from + (FREEZE.to - FREEZE.from) * i / 24; const [x, y] = P(...polar(a, 1)); ctx.lineTo(x, y); }
-      ctx.closePath(); ctx.fill(); ctx.stroke();
-      for (const a of [FREEZE.from, FREEZE.to]) {
-        const [x1, y1] = P(...polar(a, 1, 0)), [x2, y2] = P(...polar(a, 1, 0.18));
-        ctx.beginPath(); ctx.moveTo(x1, y1); ctx.lineTo(x2, y2); ctx.stroke();
-      }
-      ctx.setLineDash([]);
     }
     // sweep fan on the floor: gradient trail behind the head
     {
@@ -243,15 +225,11 @@
     // ---- rim labels, standing up at the rim
     ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
     ctx.font = `600 12px ${FONT}`; ctx.letterSpacing = '0.16em';
-    for (const [txt, a] of [['MAP', 0.04], ['SEQUENCE', 0.36], ['MIGRATE', 0.80]]) {
+    for (const [txt, a] of [['DISCOVERY', 0.02], ['SCANNING', 0.27], ['ANALYSIS', 0.52], ['REPORTING', 0.77]]) {
       const [x, y] = P(...polar(a, 1.12, 0.06));
       const on = a < sweep && vis > 0.5;
       ctx.fillStyle = on ? rgba(A, 1) : SOFT;
       ctx.fillText(txt, x, y);
-    }
-    {
-      const [x, y] = P(...polar((FREEZE.from + FREEZE.to) / 2, 0.8, 0.2));
-      ctx.fillStyle = SOFT; ctx.font = `500 11px ${FONT}`; ctx.fillText('QUARTER CLOSE', x, y);
     }
 
     // ---- exposure readout

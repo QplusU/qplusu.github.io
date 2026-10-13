@@ -226,3 +226,5 @@ body::after { content: ""; position: fixed; inset: 0; z-index: -1; pointer-event
 @media (hover: none), (prefers-reduced-motion: reduce) { .lens, body::after { display: none; } }
 
 .hero .eyebrow { font-size: clamp(1rem, 0.85rem + 0.5vw, 1.25rem); font-weight: 700; letter-spacing: 0.14em; color: var(--accent); margin-bottom: 18px; }
+table.spec.stages th .arrow { color: var(--accent); margin-left: 6px; font-weight: 400; }
+.cards.one { grid-template-columns: minmax(0, 560px); }
