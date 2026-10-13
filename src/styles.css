@@ -142,9 +142,9 @@ a.card:hover { text-decoration: none; transform: translateY(-3px); border-color:
 .status { font-size: var(--fs-0); letter-spacing: 0.12em; text-transform: uppercase; border: 1px solid var(--line-strong); border-radius: 999px; padding: 2px 9px; color: var(--fg-soft); }
 .status.proto { border-style: dashed; }
 .card.person { padding: 14px 14px 18px; gap: 0; }
-.card.person .photo { aspect-ratio: 1 / 1; border-radius: 10px; overflow: hidden; background: var(--accent); margin-bottom: 18px; }
-.card.person .photo img { width: 100%; height: 100%; object-fit: cover; display: block; filter: grayscale(1) contrast(1.05) brightness(1.05); mix-blend-mode: luminosity; transition: filter 300ms var(--ease); }
-.card.person:hover .photo img { filter: grayscale(0.2) contrast(1.02); mix-blend-mode: normal; }
+.card.person .photo { aspect-ratio: 1 / 1; border-radius: 10px; overflow: hidden; background: var(--bg-2); margin-bottom: 18px; }
+.card.person .photo img { width: 100%; height: 100%; object-fit: cover; display: block; filter: grayscale(1) contrast(1.08); transition: filter 300ms var(--ease); }
+.card.person:hover .photo img { filter: grayscale(1) contrast(1.12) brightness(1.04); }
 .card.person .who { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; padding-inline: 4px; }
 .card.person .who h3 { margin: 0; font-size: 1.15rem; }
 .card.person .li { font-weight: 700; font-size: 1rem; letter-spacing: 0; color: var(--fg); text-decoration: none; }
@@ -205,3 +205,20 @@ footer.site p { margin: 0; max-width: 70ch; }
   .wrap { padding-inline: 16px; }
 }
 .hero-note { margin: 26px 0 0; max-width: 44ch; }
+
+/* telescope: a lens that follows the pointer and reveals the universe at full strength */
+:root { --lx: -1000px; --ly: -1000px; --lens: 0; --lr: 150px; }
+body::after { content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: var(--lens);
+  background: url("../assets/galaxy.jpg") center / 125% auto no-repeat;
+  background-position: calc(50% + (50% - var(--lx)) * 0.12) calc(50% + (50% - var(--ly)) * 0.12);
+  -webkit-mask-image: radial-gradient(circle var(--lr) at var(--lx) var(--ly), #000 0 82%, transparent 100%);
+  mask-image: radial-gradient(circle var(--lr) at var(--lx) var(--ly), #000 0 82%, transparent 100%);
+  transition: opacity 300ms var(--ease); }
+:root:not([data-theme="dark"]) body::after { filter: invert(1) grayscale(1) contrast(1.15); mix-blend-mode: multiply; }
+.lens { position: fixed; left: var(--lx); top: var(--ly); width: calc(var(--lr) * 2); height: calc(var(--lr) * 2); transform: translate(-50%, -50%); border-radius: 50%; pointer-events: none; z-index: 5; opacity: var(--lens);
+  border: 1px solid color-mix(in srgb, var(--fg) 45%, transparent); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--fg) 10%, transparent), 0 0 0 6px color-mix(in srgb, var(--bg) 25%, transparent); transition: opacity 300ms var(--ease); }
+.lens::before, .lens::after { content: ""; position: absolute; background: color-mix(in srgb, var(--fg) 45%, transparent); }
+.lens::before { left: 50%; top: 0; width: 1px; height: 10px; box-shadow: 0 calc(var(--lr) * 2 - 10px) 0 color-mix(in srgb, var(--fg) 45%, transparent); }
+.lens::after { top: 50%; left: 0; height: 1px; width: 10px; box-shadow: calc(var(--lr) * 2 - 10px) 0 0 color-mix(in srgb, var(--fg) 45%, transparent); }
+.lens span { position: absolute; left: 50%; bottom: -22px; transform: translateX(-50%); font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--fg-soft); white-space: nowrap; }
+@media (hover: none), (prefers-reduced-motion: reduce) { .lens, body::after { display: none; } }

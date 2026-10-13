@@ -22,7 +22,7 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap">
   <meta name="theme-color" content="#0B1426">
   <link rel="icon" href="assets/logo-mark.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="src/styles.css?v=20261012q">
+  <link rel="stylesheet" href="src/styles.css?v=20261012s">
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
@@ -46,6 +46,8 @@
       </div>
     </nav>
   </div>
+
+  <div class="lens" id="lens" aria-hidden="true"><span>The known unknown</span></div>
 
   <main id="main" tabindex="-1">
     <section class="hero" aria-label="Introduction">
@@ -299,6 +301,18 @@
     (function(){
       var io = new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } }); }, { rootMargin: '0px 0px -10% 0px' });
       document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+      // telescope lens: eased pointer follow, hidden until the pointer moves and when it leaves
+      (function(){
+        var root = document.documentElement;
+        var dbg = /[?&]lens=(\d+),(\d+)/.exec(location.search);
+        if (dbg) { root.style.setProperty('--lx', dbg[1] + 'px'); root.style.setProperty('--ly', dbg[2] + 'px'); root.style.setProperty('--lens', '1'); return; }
+        if (!window.matchMedia('(hover: hover)').matches) return;
+        var tx = -1000, ty = -1000, x = -1000, y = -1000, on = false, raf = 0;
+        function tick(){ x += (tx - x) * 0.18; y += (ty - y) * 0.18; root.style.setProperty('--lx', x.toFixed(1) + 'px'); root.style.setProperty('--ly', y.toFixed(1) + 'px'); raf = (Math.abs(tx - x) + Math.abs(ty - y) > 0.3) ? requestAnimationFrame(tick) : 0; }
+        window.addEventListener('pointermove', function(e){ tx = e.clientX; ty = e.clientY; if (!on) { on = true; x = tx; y = ty; root.style.setProperty('--lens', '1'); } if (!raf) raf = requestAnimationFrame(tick); }, { passive: true });
+        document.addEventListener('pointerleave', function(){ on = false; root.style.setProperty('--lens', '0'); });
+        document.addEventListener('visibilitychange', function(){ if (document.hidden) { on = false; root.style.setProperty('--lens', '0'); } });
+      })();
       var pill = document.getElementById('pill'), more = document.getElementById('more');
       more.addEventListener('click', function(){ var o = pill.classList.toggle('open'); more.setAttribute('aria-expanded', o); });
       pill.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', function(){ pill.classList.remove('open'); }); });
