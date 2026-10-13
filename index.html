@@ -22,7 +22,7 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap">
   <meta name="theme-color" content="#0B1426">
   <link rel="icon" href="assets/logo-mark.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="src/styles.css?v=20261012z">
+  <link rel="stylesheet" href="src/styles.css?v=20261013a">
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
@@ -113,21 +113,16 @@
       <div class="wrap cols">
         <h2>Scanner<small>Open-source prototype</small></h2>
         <div class="reveal">
-          <p class="lead">One command maps TLS and SSH, scores every asset against NIST post-quantum standards, and writes a Cryptographic Bill of Materials.</p>
+          <p class="lead">Four stages. One pass.</p>
           <div class="cards one">
             <a class="card" href="https://github.com/QplusU/q-u-scanner-prototype">
               <div class="cardtop"><span class="tag">Open source</span><span class="status proto">Prototype</span></div>
               <h3>q-u-scanner-prototype</h3>
-              <p class="fine">Python pipeline for TLS and SSH post-quantum exposure assessment. Runs on your own infrastructure, with no cloud dependency, so it works in air-gapped and regulated environments.</p>
+              <p class="fine">Open-source prototype. Runs on your own infrastructure, with no cloud dependency.</p>
               <div class="cardfoot"><span class="fine">Python · AGPL-3.0 · GitHub</span></div>
             </a>
           </div>
-          <table class="spec stages" style="margin-top:20px">
-            <tr><th>Discovery <span class="arrow">→</span></th><td>Subdomain enumeration, DNS resolution, web and SSH service detection, with CDN bypass via MX and SPF records.</td></tr>
-            <tr><th>Scanning <span class="arrow">→</span></th><td>OpenSSL TLS handshake analysis and SSH auditing per host: versions, cipher suites, certificate chains, key exchange groups, hybrid PQC detection.</td></tr>
-            <tr><th>Analysis <span class="arrow">→</span></th><td>Per-endpoint quantum vulnerability score weighted across key exchange, certificate signature and symmetric cipher, with CRITICAL to LOW migration tiers aligned to the 2030 and 2035 deadlines.</td></tr>
-            <tr><th>Reporting</th><td>CBOM in JSON plus a Markdown summary, with data-quality flags on every result and timestamped history to track progress between runs.</td></tr>
-          </table>
+          <ol class="stages" aria-label="Scanner stages"><li>Discovery</li><li>Scanning</li><li>Analysis</li><li>Reporting</li></ol>
           <div class="btns" style="justify-content:flex-start;margin-top:16px">
             <a class="btn solid" href="https://github.com/QplusU/q-u-scanner-prototype">View on GitHub</a>
             <a class="btn" href="https://github.com/qubitac/AC-Scanner">Upstream: AC Scanner</a>
