@@ -327,3 +327,8 @@ ul.ticks.tight { margin: 6px 0 0; }
 ul.ticks.tight li { padding: 5px 0 5px 22px; font-size: var(--fs-1); color: var(--fg-soft); }
 ul.ticks.tight li b { color: var(--fg); font-weight: 600; }
 .stats span a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
+/* about page */
+section.block.about-hero { padding-top: 150px; }
+.about-title { font-size: clamp(2rem, 1.3rem + 2.6vw, 3.6rem); letter-spacing: -0.03em; line-height: 1.05; max-width: 20ch; margin: 10px 0 0; }
+.about-sub { margin: 22px 0 0; max-width: 56ch; color: var(--fg-soft); font-size: clamp(1rem, 0.9rem + 0.4vw, 1.2rem); }
+.pill a[aria-current="page"] { color: var(--accent); }

@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>About Q+U</title>
+  <meta name="description" content="Q+U's mission and the team behind it.">
+  <script>
+    (function(){try{
+      var KEY="theme-override";
+      function resolve(){var q=/[?&]theme=(dark|light)/.exec(location.search);if(q)return q[1];
+        try{var o=sessionStorage.getItem(KEY);if(o==="dark"||o==="light")return o;}catch(e){}
+        if(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches)return "dark";
+        var h=new Date().getHours();return (h>=7&&h<19)?"light":"dark";}
+      function apply(){var m=resolve();document.documentElement.setAttribute("data-theme",m);
+        var meta=document.querySelector('meta[name="theme-color"]');if(meta)meta.content=m==="dark"?"#0B1426":"#F2ECE1";}
+      apply();setInterval(apply,60000);
+      window.__toggleTheme=function(){var cur=document.documentElement.getAttribute("data-theme");try{sessionStorage.setItem(KEY,cur==="dark"?"light":"dark");}catch(e){}apply();};
+    }catch(e){}})();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap">
+  <meta name="theme-color" content="#0B1426">
+  <link rel="icon" href="assets/logo-mark.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="src/styles.css?v=20261103h">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <div class="topbar">
+    <a class="brand" href="./" aria-label="Q+U, home"><svg viewBox="0 0 120 120" aria-hidden="true"><circle cx="44" cy="52" r="30" fill="none" stroke="currentColor" stroke-width="10"/><path d="M62 72 L82 92" stroke="currentColor" stroke-width="10" stroke-linecap="round"/><path d="M86 24 V52 C86 70 104 70 104 52 V24" fill="none" stroke="var(--accent)" stroke-width="10" stroke-linecap="round"/><path d="M14 98 H42 M28 84 V112" stroke="var(--accent)" stroke-width="8" stroke-linecap="round"/></svg></a>
+    <nav class="pill" id="pill" aria-label="Main">
+      <a href="./#why">Why now</a>
+      <a href="./#check">Am I affected?</a>
+      <a href="./#how">How we help</a>
+      <a href="./#playbook">Playbook</a>
+      <a href="./#faq">FAQ</a>
+      <a href="about.html" aria-current="page">About us</a>
+      <div class="row">
+        <a class="cta" href="./#contact">Talk to us</a>
+        <button type="button" class="more" id="more" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 4h12M2 8h12M2 12h12"/></svg></button>
+        <button type="button" id="theme" aria-label="Toggle light and dark theme" onclick="window.__toggleTheme&&window.__toggleTheme()">
+          <svg class="i-sun" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="3"/><path d="M8 1v2M8 13v2M1 8h2M13 8h2M3 3l1.4 1.4M11.6 11.6 13 13M3 13l1.4-1.4M11.6 4.4 13 3"/></svg>
+          <svg class="i-moon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13.5 9.5A6 6 0 0 1 6.5 2.5a6 6 0 1 0 7 7z"/></svg>
+        </button>
+      </div>
+    </nav>
+  </div>
+
+  <main id="main" tabindex="-1">
+    <section class="block about-hero">
+      <div class="wrap">
+        <p class="eyebrow">About us</p>
+        <h1 class="about-title">Bring every business into the quantum era, protecting what pays first.</h1>
+        <p class="sub about-sub">Q+U helps mid-size organizations get ready for post-quantum cryptography: finding where vulnerable encryption lives, deciding what to migrate first and when, and keeping the plan current as the rules change.</p>
+      </div>
+    </section>
+
+    <section class="block" id="team">
+      <div class="wrap cols">
+        <h2>Team<small>Who we are</small></h2>
+        <div class="reveal">
+          <div class="cards">
+            <div class="card person"><div class="photo"><img src="assets/team/brianna.jpg?v=6" alt="Brianna Gabaldon" width="800" height="800" loading="lazy"></div><div class="who"><h3>Brianna Gabaldon</h3><a class="li" href="https://www.linkedin.com/in/brianna-gabaldon-328011149/" rel="noopener" aria-label="Brianna Gabaldon on LinkedIn">in</a></div><span class="role">CEO / Co-founder</span><p class="fine">Product manager for 5+ years on a platform used by over a billion devices. M.S. Global Security, Conflict and Cybercrime (NYU), with a thesis on cyber risk in small organizations. B.S. Computer Science, Virginia Tech.</p></div>
+            <div class="card person"><div class="photo"><img src="assets/team/daniel.jpg?v=6" alt="Daniel Vitenko" width="800" height="800" loading="lazy"></div><div class="who"><h3>Daniel Vitenko</h3><a class="li" href="https://www.linkedin.com/in/daniel-vitenko/" rel="noopener" aria-label="Daniel Vitenko on LinkedIn">in</a></div><span class="role">CTO / Co-founder</span><p class="fine">Formerly on applied research teams at MITRE, building AI workflows and API infrastructure. M.S. Quantum Science and Technology, Columbia (in progress). Independent quantum-circuit research.</p></div>
+            <div class="card person"><div class="photo"><img src="assets/team/carolina.jpg?v=6" alt="Carolina Pernambuco Moron" width="800" height="800" loading="lazy"></div><div class="who"><h3>Carolina Pernambuco Moron</h3><a class="li" href="https://www.linkedin.com/in/carolina-pernambuco-moron/" rel="noopener" aria-label="Carolina Pernambuco Moron on LinkedIn">in</a></div><span class="role">CPO / Co-founder</span><p class="fine">Background in AML/KYC due diligence and UN Security Council counterterrorism work. Led five applied-AI builds at the Ethical Tech CoLab. M.S. Global Security, Conflict and Cybercrime, NYU (in progress).</p></div>
+          </div>
+          <p class="fine" style="margin-top:20px">Our approach builds on <em>The Human Architecture of Cyber Risk: How Micro-Businesses Operate Beyond Conventional Frameworks</em>, M.S. thesis, NYU Center for Global Affairs, April 2026.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" id="contact">
+      <div class="wrap contact-inner reveal">
+        <p class="eyebrow">Contact</p>
+        <h2>Protect what pays first.</h2>
+        <p>Want to know where your organization stands?</p>
+        <div class="btns">
+          <a class="btn solid" href="./#check">Am I affected?</a>
+          <a class="btn" href="mailto:info@qplusu.com">info@qplusu.com</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site">
+    <div class="wrap">
+      <p>We build advanced technology to help people, not only to protect systems. Post-quantum cryptography, optimization and AI matter because of what they make possible for the people inside an organization: being safer, more confident, and ready for the change ahead.</p>
+      <p>© 2026 Q+U · <a href="https://github.com/QplusU/qplusu.github.io">Site source</a> · Logo: <a href="assets/brand/qplusu-mark.svg" download>SVG</a>, <a href="assets/brand/qplusu-mark-512.png" download>PNG 512</a>, <a href="assets/brand/qplusu-mark-1024.png" download>PNG 1024</a></p>
+      <p class="credit">Background: the Artemis II crew captured this photo of our galaxy, the Milky Way. NASA, April 9, 2026. <a href="https://www.nasa.gov/image-article/starstruck/" rel="noopener">nasa.gov/image-article/starstruck</a>. The universe stands for the unknown. Cyber risk is the known unknown: we know the quantum threat is coming and that the migration must happen; what is unknown is how exposed you are today. Q+U exists to make that known.</p>
+    </div>
+  </footer>
+  <script>
+    (function(){
+      var io = new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } }); }, { rootMargin: '0px 0px -10% 0px' });
+      document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+      // galaxy: full in the hero, dimmed once the reader is in the text
+      (function(){
+        var root = document.documentElement, hero = document.querySelector('.hero');
+        function upd(){ var h = hero ? hero.offsetHeight : 800; var g = Math.max(0.25, 1 - Math.max(0, window.scrollY - h * 0.5) / (h * 0.6)); root.style.setProperty('--gal', g.toFixed(2)); }
+        window.addEventListener('scroll', upd, { passive: true }); window.addEventListener('resize', upd, { passive: true }); upd();
+      })();
+      // playbook signup: opens the visitor's mail app until a form service is connected
+      (function(){
+        var f = document.getElementById('signup'); if (!f) return;
+        f.addEventListener('submit', function(e){
+          e.preventDefault();
+          var d = new FormData(f), body = 'Please send me the PQC readiness playbook when it is ready.\n\nEmail: ' + d.get('email') + '\nRole: ' + (d.get('role')||'') + '\nSector: ' + (d.get('sector')||'') + '\nQuestion: ' + (d.get('question')||'');
+          location.href = 'mailto:info@qplusu.com?subject=' + encodeURIComponent('Playbook signup') + '&body=' + encodeURIComponent(body);
+        });
+      })();
+      var pill = document.getElementById('pill'), more = document.getElementById('more');
+      more.addEventListener('click', function(){ var o = pill.classList.toggle('open'); more.setAttribute('aria-expanded', o); });
+      pill.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', function(){ pill.classList.remove('open'); }); });
+    })();
+  </script>
+</body>
+</html>
