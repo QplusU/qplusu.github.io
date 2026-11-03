@@ -332,3 +332,9 @@ section.block.about-hero { padding-top: 150px; }
 .about-title { font-size: clamp(2rem, 1.3rem + 2.6vw, 3.6rem); letter-spacing: -0.03em; line-height: 1.05; max-width: 20ch; margin: 10px 0 0; }
 .about-sub { margin: 22px 0 0; max-width: 56ch; color: var(--fg-soft); font-size: clamp(1rem, 0.9rem + 0.4vw, 1.2rem); }
 .pill a[aria-current="page"] { color: var(--accent); }
+/* hero readability: soft fade behind the copy, galaxy stays visible on the right */
+.hero::after { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background: linear-gradient(90deg, color-mix(in srgb, var(--bg) 88%, transparent) 0%, color-mix(in srgb, var(--bg) 70%, transparent) 38%, color-mix(in srgb, var(--bg) 0%, transparent) 62%); }
+@media (max-width: 900px) { .hero::after { background: color-mix(in srgb, var(--bg) 72%, transparent); } }
+.hero .sub { color: color-mix(in srgb, var(--fg) 82%, var(--fg-soft)); }
+.hero .eyebrow { font-size: clamp(0.85rem, 0.75rem + 0.3vw, 1rem); }
