@@ -308,3 +308,12 @@ table.matrix td { color: var(--fg-soft); width: 28%; }
   table.matrix tbody th, table.matrix td { border: 0 !important; padding: 4px 0; }
   table.matrix td::before { content: attr(data-label) " · "; color: var(--accent); font-weight: 600; }
 }
+/* sample plan inside the check result */
+.check-result details.sample { margin-top: 16px; }
+.check-result details.sample summary { cursor: pointer; list-style: none; display: inline-block; font-weight: 600; font-size: var(--fs-1); color: var(--accent); }
+.check-result details.sample summary::-webkit-details-marker { display: none; }
+.check-result details.sample summary::after { content: " \2192"; }
+.check-result details.sample[open] summary::after { content: " \2193"; }
+.check-result details.sample .fine { margin: 8px 0 4px; }
+.check-result table.plan td { color: var(--fg-soft); }
+@media (max-width: 600px) { .check-result table.plan th:nth-child(4), .check-result table.plan td:nth-child(4) { display: table-cell; } .check-result table.plan { font-size: var(--fs-0); } }

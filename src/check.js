@@ -206,6 +206,15 @@
         '<p><span class="when">' + esc(x.date) + '.</span> ' + esc(x.text) + ' <a class="src" href="' + esc(x.url) + '" rel="noopener" target="_blank">Source</a></p></details>';
     });
     html += '</div>';
+    html += '<details class="sample"><summary>See a sample migration plan</summary>' +
+      '<p class="fine">For a simulated mid-size firm. Each step has a reason, and the timing follows the business.</p>' +
+      '<table class="plan"><thead><tr><th>Week</th><th>System</th><th>Action</th><th>Why</th></tr></thead><tbody>' +
+      '<tr><td>1\u20132</td><td>Customer VPN</td><td>Hybrid ML-KEM</td><td>Internet-facing; secret 10+ years</td></tr>' +
+      '<tr><td>3</td><td>Payroll transfer</td><td>Hybrid key exchange</td><td>Regulated data; vendor ready</td></tr>' +
+      '<tr><td>4</td><td>None</td><td>Change freeze</td><td>Quarter close on calendar</td></tr>' +
+      '<tr><td>5</td><td>Internal wiki</td><td>Swap at renewal</td><td>Low exposure; batch it</td></tr>' +
+      '<tr><td>7</td><td>Partner EDI link</td><td>Hold</td><td>Vendor not ready; flagged</td></tr>' +
+      '</tbody></table></details>';
     out.innerHTML = html;
     out.hidden = false; form.hidden = false;
   }
