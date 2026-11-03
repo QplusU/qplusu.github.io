@@ -236,3 +236,10 @@ section#insight p, section#insight .card p { color: var(--fg); }
 ol.stages { list-style: none; margin: 24px 0 8px; padding: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 14px 0; }
 ol.stages li { font-weight: 700; font-size: clamp(1.2rem, 1rem + 1vw, 1.8rem); letter-spacing: -0.01em; }
 ol.stages li + li::before { content: "→"; color: var(--accent); font-weight: 400; margin: 0 18px; }
+/* migration plan mock */
+.card.plan { max-width: 860px; padding: 20px 22px; }
+table.plan { border-collapse: collapse; width: 100%; font-size: var(--fs-1); margin-top: 8px; }
+table.plan th, table.plan td { text-align: left; padding: 10px 12px 10px 0; border-top: 1px solid var(--line); vertical-align: top; }
+table.plan th { font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; font-size: var(--fs-0); color: var(--accent); border-top: 0; }
+table.plan td:first-child { white-space: nowrap; font-family: ui-monospace, Menlo, Consolas, monospace; color: var(--fg-soft); }
+@media (max-width: 600px) { table.plan th:nth-child(4), table.plan td:nth-child(4) { display: none; } }

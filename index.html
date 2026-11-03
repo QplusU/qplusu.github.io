@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Q+U</title>
-  <meta name="description" content="Q+U helps organizations find where quantum-vulnerable cryptography lives and prepare for the post-quantum migration. Discovery, scanning, analysis, reporting.">
+  <meta name="description" content="Q+U tells you what to migrate to post-quantum cryptography, in what order, and when, then keeps re-planning as your systems and the rules change.">
   <script>
     (function(){try{
       var KEY="theme-override";
@@ -22,7 +22,7 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap">
   <meta name="theme-color" content="#0B1426">
   <link rel="icon" href="assets/logo-mark.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="src/styles.css?v=20261013a">
+  <link rel="stylesheet" href="src/styles.css?v=20261103a">
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
@@ -31,10 +31,10 @@
     <a class="brand" href="#" aria-label="Q+U, home"><img src="assets/logo-mark.svg" alt="">Q<span class="plus">+</span>U</a>
     <nav class="pill" id="pill" aria-label="Main">
       <a href="#problem">Problem</a>
-      <a href="#insight">Insight</a>
-      <a href="#scanner">Scanner</a>
-      <a href="#why">Why now</a>
-      <a href="#team">Founders</a>
+      <a href="#product">Product</a>
+      <a href="#how">How it works</a>
+      <a href="#who">Who it's for</a>
+      <a href="#team">Team</a>
       <div class="row">
         <a class="cta" href="#contact">Talk to us</a>
         <button type="button" class="more" id="more" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 4h12M2 8h12M2 12h12"/></svg></button>
@@ -52,12 +52,12 @@
     <section class="hero" aria-label="Introduction">
       <div class="wrap hero-grid">
         <div class="hero-inner">
-          <p class="eyebrow">Helping you migrate to post-quantum</p>
-          <h1>Post-quantum readiness, made knowable.</h1>
-          <p class="sub">Q+U helps organizations find where quantum-vulnerable cryptography lives, understand what it means, and prepare for the migration ahead.</p>
+          <p class="eyebrow">Post-quantum migration, sequenced</p>
+          <h1>Get quantum-safe in the right order, and stay that way.</h1>
+          <p class="sub">Q+U tells you what to migrate, in what order, and when. Then it keeps re-planning as your systems and the rules change.</p>
           <div class="btns">
             <a class="btn solid" href="#contact">Talk to us</a>
-            <a class="btn" href="#scanner">See the scanner</a>
+            <a class="btn" href="#how">How it works</a>
           </div>
           <p class="fine hero-note">The universe is the unknown. Cyber risk is the known unknown. We make it knowable.</p>
         </div>
@@ -71,104 +71,104 @@
 
     <div class="band">
       <div class="wrap stats">
-        <div class="reveal"><b>2030</b><span>NIST IR 8547 deprecates RSA and ECC. Disallowed after 2035.</span></div>
+        <div class="reveal"><b>2030</b><span>Key federal systems move to post-quantum. Executive Order 14412, June 2026.</span></div>
         <div class="reveal"><b>5%</b><span>of organizations have a defined quantum strategy. 55% have taken no steps. ISACA 2025.</span></div>
-        <div class="reveal"><b>62%</b><span>of breaches involve a human element. Verizon DBIR 2026.</span></div>
+        <div class="reveal"><b>Today</b><span>Encrypted data stolen now can be decrypted once quantum computers can break it.</span></div>
       </div>
     </div>
 
     <section class="block" id="problem">
       <div class="wrap cols">
-        <h2>The problem<small>Where organizations stand</small></h2>
+        <h2>The problem<small>Two clocks</small></h2>
         <div class="reveal">
-          <p class="lead">Most organizations have not started the post-quantum migration, and people remain the most common way in for attackers.</p>
-          <table class="spec">
-            <tr><th>Quantum plan</th><td>5% have a defined strategy; 55% have taken no steps. ISACA 2025.</td></tr>
-            <tr><th>Understanding</th><td>30% of cyber and IT professionals say they do not understand quantum's capabilities. ISACA 2025.</td></tr>
-            <tr><th>Human element</th><td>62% of breaches in 2026, about 60% in 2025. Verizon DBIR.</td></tr>
-            <tr><th>Third parties</th><td>48% of breaches in 2026, up 60% year over year. Verizon DBIR 2026.</td></tr>
-            <tr><th>Attackers and AI</th><td>The median attacker used AI across 15 documented techniques. Verizon DBIR 2026.</td></tr>
-          </table>
+          <p class="lead">Two clocks are already running.</p>
+          <div class="cards two">
+            <div class="card"><span class="tag">The legal clock</span><h3>Key federal systems on post-quantum by 2030.</h3><p class="fine">Executive Order 14412, June 2026. Contractor procurement rules come next, and critical infrastructure is urged to follow.</p></div>
+            <div class="card"><span class="tag">The attacker clock</span><h3>Stolen today, decrypted later.</h3><p class="fine">Adversaries record encrypted traffic now to break it once quantum computers can. Data that must stay secret for years is already exposed.</p></div>
+          </div>
+          <p style="margin-top:20px">Every company has to migrate, and the rules will keep changing after.</p>
         </div>
       </div>
     </section>
 
-
-
-    <section class="block" id="insight">
+    <section class="block" id="product">
       <div class="wrap cols">
-        <h2>Our insight<small>What matters most?</small></h2>
+        <h2>Meet Q+U<small>The product</small></h2>
         <div class="reveal">
-          <p class="lead">The quantum migration fails before it starts, at the question every organization struggles with: what matters most?</p>
+          <p class="lead">The platform that tells you what to migrate, in what order, and when.</p>
+          <div class="card plan">
+            <div class="cardtop"><span class="tag">Migration plan · simulated mid-size firm</span><span class="status proto">Prototype mock</span></div>
+            <table class="plan">
+              <thead><tr><th>Week</th><th>System</th><th>Action</th><th>Why</th></tr></thead>
+              <tbody>
+                <tr><td>1–2</td><td>Customer VPN</td><td>Hybrid ML-KEM</td><td>Internet-facing; secret 10+ years</td></tr>
+                <tr><td>3</td><td>Payroll transfer</td><td>Hybrid key exchange</td><td>Regulated data; vendor ready</td></tr>
+                <tr><td>4</td><td>None</td><td>Change freeze</td><td>Quarter close on calendar</td></tr>
+                <tr><td>5</td><td>Internal wiki</td><td>Swap at renewal</td><td>Low exposure; batch it</td></tr>
+                <tr><td>7</td><td>Partner EDI link</td><td>Hold</td><td>Vendor not ready; flagged</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="fine" style="margin-top:14px">A weekly plan with a reason for every step. Nothing risky cuts over during quarter close, and a vendor that isn't ready is held and flagged instead of broken. This is a mock on a simulated company, not live output.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" id="how">
+      <div class="wrap cols">
+        <h2>How it works<small>Three steps, one product</small></h2>
+        <div class="reveal">
           <div class="cards">
-            <div class="card"><span class="tag">Exposure</span><h3>Transitions are peak exposure</h3><p class="fine">Old and new systems run side by side, defaults reset, and ownership blurs. Attackers look for the moment a system is between states.</p></div>
-            <div class="card"><span class="tag">Timing</span><h3>Your calendar is a security input</h3><p class="fine">A migration step that is safe in a quiet month is risky in earnings week, quarter-close or open enrollment. Attackers aim for when people are rushed.</p></div>
-            <div class="card"><span class="tag">People</span><h3>Change creates the pretext</h3><p class="fine">"Your certificate expires today, renew now" is far more believable mid-migration. The people going through the change need preparation tied to it.</p></div>
+            <div class="card"><span class="tag">01 · Scan</span><h3>Find every use of RSA and ECC</h3><p class="fine">VPNs, certificates, email, vendor links. Collected inside your environment.</p></div>
+            <div class="card"><span class="tag">02 · Sequence</span><h3>One schedule, timed to your business</h3><p class="fine">Business losses, legal deadlines and technical risk weighed into one plan, timed around your calendar.</p></div>
+            <div class="card"><span class="tag">03 · Stay behind</span><h3>Keep the plan current</h3><p class="fine">Rescan for drift and new rules. A conflict triggers a fresh audit, until the last old key is retired.</p></div>
           </div>
+          <div class="callout"><p>Our edge: every plan starts from the losses your business can't accept, mapped with FMA-C (Functional Mission Analysis – Cyber), a method from military cyber missions.</p></div>
         </div>
       </div>
     </section>
 
-    <section class="block" id="scanner">
+    <section class="block" id="who">
       <div class="wrap cols">
-        <h2>Scanner<small>Open-source prototype</small></h2>
+        <h2>Who it's for<small>And how we work</small></h2>
         <div class="reveal">
-          <p class="lead">Four stages. One pass.</p>
-          <div class="cards one">
-            <a class="card" href="https://github.com/QplusU/q-u-scanner-prototype">
-              <div class="cardtop"><span class="tag">Open source</span><span class="status proto">Prototype</span></div>
-              <h3>q-u-scanner-prototype</h3>
-              <p class="fine">Open-source prototype. Runs on your own infrastructure, with no cloud dependency.</p>
-              <div class="cardfoot"><span class="fine">Python · AGPL-3.0 · GitHub</span></div>
-            </a>
-          </div>
-          <ol class="stages" aria-label="Scanner stages"><li>Discovery</li><li>Scanning</li><li>Analysis</li><li>Reporting</li></ol>
-          <div class="btns" style="justify-content:flex-start;margin-top:16px">
-            <a class="btn solid" href="https://github.com/QplusU/q-u-scanner-prototype">View on GitHub</a>
-            <a class="btn" href="https://github.com/qubitac/AC-Scanner">Upstream: AC Scanner</a>
-          </div>
-          <div class="callout"><p>The prototype is a fork of <a href="https://github.com/qubitac/AC-Scanner">AC Scanner</a> by <a href="https://qubitac.com">Qubitac</a>, released under AGPL-3.0. Credit for the scanner engine goes to Qubitac.</p></div>
-        </div>
-      </div>
-    </section>
-
-
-
-
-    <section class="block" id="why">
-      <div class="wrap cols">
-        <h2>Why now<small>Dates attached</small></h2>
-        <div class="reveal">
-          <p class="lead">The migration now has dates attached, and almost no one is ready.</p>
-          <p>NIST IR 8547 proposes deprecating RSA and ECC after 2030 and disallowing them after 2035. Federal migration plans are being aligned to those dates, and federal rules flow into contractors, banks and healthcare.</p>
-          <p>The threat is already active: adversaries can harvest encrypted data today and decrypt it once quantum computers arrive, so long-lived data is exposed now.</p>
+          <p class="lead">Mid-size critical infrastructure, starting in New York.</p>
+          <p>We start with financial services and healthcare. Both are heavily regulated, federal migration support targets critical infrastructure, and New York is a hub for both. Mid-size firms carry the same obligations as large ones without large security teams. Next, we reach smaller firms through MSPs.</p>
+          <table class="spec">
+            <tr><th>01 Audit and plan</th><td>Business audit, scan and first migration schedule.</td></tr>
+            <tr><th>02 Deploy</th><td>Hands-on help where networks are complex.</td></tr>
+            <tr class="us"><th>03 Subscription</th><td>The engine runs from day one and keeps re-planning after the migration.</td></tr>
+          </table>
         </div>
       </div>
     </section>
 
     <section class="block" id="team">
       <div class="wrap cols">
-        <h2>Founders<small>Who we are</small></h2>
+        <h2>Team<small>Who we are</small></h2>
         <div class="reveal">
           <div class="cards">
-            <div class="card person"><div class="photo"><img src="assets/team/brianna.jpg?v=6" alt="Brianna Gabaldon" width="800" height="800" loading="lazy"></div><div class="who"><h3>Brianna Gabaldon</h3><a class="li" href="https://www.linkedin.com/in/brianna-gabaldon-328011149/" rel="noopener" aria-label="Brianna Gabaldon on LinkedIn">in</a></div><span class="role">CEO / Co-founder</span><p class="fine">Product manager on an operating system shipping to 1.4+ billion devices. B.S. Computer Science; M.S. Global Security, Conflict and Cybercrime (NYU), thesis on human factors in cyber risk. Ethical Tech CoLab advisor.</p></div>
-            <div class="card person"><div class="photo"><img src="assets/team/daniel.jpg?v=6" alt="Daniel Vitenko" width="800" height="800" loading="lazy"></div><div class="who"><h3>Daniel Vitenko</h3><a class="li" href="https://www.linkedin.com/in/daniel-vitenko/" rel="noopener" aria-label="Daniel Vitenko on LinkedIn">in</a></div><span class="role">CTO / Co-founder</span><p class="fine">B.S. Computational Mathematics; M.S. Quantum Science. Graduate research in large-scale RQC behavior and Fermi gas simulations.</p></div>
-            <div class="card person"><div class="photo"><img src="assets/team/carolina.jpg?v=6" alt="Carolina Pernambuco Moron" width="800" height="800" loading="lazy"></div><div class="who"><h3>Carolina Pernambuco Moron</h3><a class="li" href="https://www.linkedin.com/in/carolina-pernambuco-moron/" rel="noopener" aria-label="Carolina Pernambuco Moron on LinkedIn">in</a></div><span class="role">CPO / Co-founder</span><p class="fine">B.S. International Business; M.S. Global Economy with a specialization in Data Analytics; M.S. Global Security, Conflict and Cybercrime (NYU).</p></div>
+            <div class="card person"><div class="photo"><img src="assets/team/brianna.jpg?v=6" alt="Brianna Gabaldon" width="800" height="800" loading="lazy"></div><div class="who"><h3>Brianna Gabaldon</h3><a class="li" href="https://www.linkedin.com/in/brianna-gabaldon-328011149/" rel="noopener" aria-label="Brianna Gabaldon on LinkedIn">in</a></div><span class="role">CEO / Co-founder</span><p class="fine">Product manager at Microsoft for 5+ years, on the Windows 11 taskbar (1.4B+ devices). M.S. Global Security, Conflict and Cybercrime (NYU), with a thesis applying FMA-C. B.S. Computer Science, Virginia Tech.</p></div>
+            <div class="card person"><div class="photo"><img src="assets/team/daniel.jpg?v=6" alt="Daniel Vitenko" width="800" height="800" loading="lazy"></div><div class="who"><h3>Daniel Vitenko</h3><a class="li" href="https://www.linkedin.com/in/daniel-vitenko/" rel="noopener" aria-label="Daniel Vitenko on LinkedIn">in</a></div><span class="role">CTO / Co-founder</span><p class="fine">Formerly on applied research teams at MITRE, building AI workflows and API infrastructure. M.S. Quantum Science and Technology, Columbia (in progress). Independent quantum-circuit research.</p></div>
+            <div class="card person"><div class="photo"><img src="assets/team/carolina.jpg?v=6" alt="Carolina Pernambuco Moron" width="800" height="800" loading="lazy"></div><div class="who"><h3>Carolina Pernambuco Moron</h3><a class="li" href="https://www.linkedin.com/in/carolina-pernambuco-moron/" rel="noopener" aria-label="Carolina Pernambuco Moron on LinkedIn">in</a></div><span class="role">CPO / Co-founder</span><p class="fine">Background in AML/KYC due diligence and UN Security Council counterterrorism work. Led five applied-AI builds at the Ethical Tech CoLab. M.S. Global Security, Conflict and Cybercrime, NYU (in progress).</p></div>
           </div>
-          <p class="fine" style="margin-top:20px">This work builds on <em>The Human Architecture of Cyber Risk: How Micro-Businesses Operate Beyond Conventional Frameworks</em>, M.S. thesis, NYU Center for Global Affairs, April 2026.</p>
+          <table class="spec" style="margin-top:28px">
+            <tr><th>Advisor</th><td><b>Joe Eandi</b>, General Partner at Cyber Mentor Fund; has backed 35+ cybersecurity startups.</td></tr>
+            <tr><th>Advisor</th><td><b>Clint Mixon</b>, developer of FMA-C; founded the Air Force Cyber College.</td></tr>
+          </table>
+          <p class="fine" style="margin-top:20px">Winners of the Microsoft Real Quantum Hackathon. Our approach builds on <em>The Human Architecture of Cyber Risk: How Micro-Businesses Operate Beyond Conventional Frameworks</em>, M.S. thesis, NYU Center for Global Affairs, April 2026.</p>
         </div>
       </div>
     </section>
 
-
     <section class="block" id="contact">
       <div class="wrap contact-inner reveal">
         <p class="eyebrow">Contact</p>
-        <h2>Let's talk.</h2>
-        <p>We are talking to CISOs, integration leads and MSPs. If the post-quantum migration is on your desk, we would like to hear from you.</p>
+        <h2>Protect what pays first.</h2>
+        <p>We are talking to security and IT leaders at mid-size financial services and healthcare firms. If the post-quantum migration is on your desk, we would like to hear from you.</p>
         <div class="btns">
-          <a class="btn solid" href="https://github.com/QplusU">github.com/QplusU</a>
-          <a class="btn" href="https://github.com/QplusU/q-u-scanner-prototype/issues">Open an issue</a>
+          <a class="btn solid" href="https://www.linkedin.com/in/brianna-gabaldon-328011149/" rel="noopener">Message us on LinkedIn</a>
+          <a class="btn" href="https://github.com/QplusU">github.com/QplusU</a>
         </div>
       </div>
       <div class="wave-band" aria-hidden="true">
