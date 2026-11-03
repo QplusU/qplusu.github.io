@@ -326,3 +326,4 @@ table.matrix td { color: var(--fg-soft); width: 28%; }
 ul.ticks.tight { margin: 6px 0 0; }
 ul.ticks.tight li { padding: 5px 0 5px 22px; font-size: var(--fs-1); color: var(--fg-soft); }
 ul.ticks.tight li b { color: var(--fg); font-weight: 600; }
+.stats span a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }

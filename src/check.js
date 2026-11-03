@@ -136,8 +136,8 @@
   };
 
   // What data they hold, mapped to how long it stays sensitive. The longest-lived type picked drives the attacker clock.
-  var Q10 = 'Experts give a 28\u201349% chance of a code-breaking quantum computer within 10 years.';
-  var Q15 = 'Experts give a 51\u201370% chance of a code-breaking quantum computer within 15 years.';
+  var Q10 = 'Quantum computers could break today\u2019s encryption as soon as 2030. Gartner says it will be unsafe by 2029.';
+  var Q15 = Q10;
   var DATA = {
     health: { rank: 4, level: 3, label: 'Health or medical records', life: 'stay sensitive for decades', q: Q15 },
     ip:     { rank: 4, level: 3, label: 'Contracts, IP or trade secrets', life: 'stay sensitive for 10+ years', q: Q15 },
@@ -145,7 +145,7 @@
     pii:    { rank: 2, level: 3, label: 'Customer personal information', life: 'stays sensitive for 5 to 10 years', q: Q10 },
     short:  { rank: 1, level: 1, label: 'Mostly short-lived data', life: 'loses value quickly', q: 'Stolen-today risk is lower, so the regulation clock and your vendors are the main reasons to plan.' }
   };
-  var DATA_SRC = { src: 'Global Risk Institute, Quantum Threat Timeline Report (March 2026)', url: 'https://globalriskinstitute.org/publication/quantum-threat-timeline-report-2025b/' };
+  var DATA_SRC = { src: 'Gartner', url: 'https://gcom.pdo.aws.gartner.com/en/articles/post-quantum-cryptography' };
 
   var state = { sector: null, flags: {}, data: {} };
   var out = document.getElementById('check-result');
