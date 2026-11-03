@@ -317,3 +317,12 @@ table.matrix td { color: var(--fg-soft); width: 28%; }
 .check-result details.sample .fine { margin: 8px 0 4px; }
 .check-result table.plan td { color: var(--fg-soft); }
 @media (max-width: 600px) { .check-result table.plan th:nth-child(4), .check-result table.plan td:nth-child(4) { display: table-cell; } .check-result table.plan { font-size: var(--fs-0); } }
+/* logo: one theme-aware mark */
+.brand svg { width: 38px; height: 38px; display: block; color: var(--fg); }
+/* mission line under the hero buttons */
+.hero-note.mission { max-width: 40ch; margin-top: 26px; font-size: var(--fs-1); line-height: 1.5; color: var(--fg); }
+.hero-note.mission .tag { display: block; margin-bottom: 4px; }
+/* scannable bullet lists in cards */
+ul.ticks.tight { margin: 6px 0 0; }
+ul.ticks.tight li { padding: 5px 0 5px 22px; font-size: var(--fs-1); color: var(--fg-soft); }
+ul.ticks.tight li b { color: var(--fg); font-weight: 600; }

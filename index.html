@@ -22,13 +22,13 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap">
   <meta name="theme-color" content="#0B1426">
   <link rel="icon" href="assets/logo-mark.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="src/styles.css?v=20261103e">
+  <link rel="stylesheet" href="src/styles.css?v=20261103f">
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
 
   <div class="topbar">
-    <a class="brand" href="#" aria-label="Q+U, home"><img src="assets/logo-mark.svg" alt="">Q<span class="plus">+</span>U</a>
+    <a class="brand" href="#" aria-label="Q+U, home"><svg viewBox="0 0 120 120" aria-hidden="true"><circle cx="44" cy="52" r="30" fill="none" stroke="currentColor" stroke-width="10"/><path d="M62 72 L82 92" stroke="currentColor" stroke-width="10" stroke-linecap="round"/><path d="M86 24 V52 C86 70 104 70 104 52 V24" fill="none" stroke="var(--accent)" stroke-width="10" stroke-linecap="round"/><path d="M14 98 H42 M28 84 V112" stroke="var(--accent)" stroke-width="8" stroke-linecap="round"/></svg></a>
     <nav class="pill" id="pill" aria-label="Main">
       <a href="#check">Am I affected?</a>
       <a href="#why">Why now</a>
@@ -58,7 +58,7 @@
             <a class="btn solid" href="#check">Am I affected?</a>
             <a class="btn" href="#playbook">Get the playbook</a>
           </div>
-          <p class="fine hero-note">The universe is the unknown. Cyber risk is the known unknown. We make it knowable.</p>
+          <p class="hero-note mission"><span class="tag">Our mission</span>Bring every business into the quantum era, protecting what pays first.</p>
         </div>
         <div class="hero-fig">
           <canvas id="disc" role="img" aria-label="Animated diagram: a sweep moves around a disc of systems. Each system it reaches turns from quantum-vulnerable to post-quantum and the exposure figure falls."></canvas>
@@ -80,10 +80,20 @@
       <div class="wrap cols">
         <h2>Why now<small>What this means for you</small></h2>
         <div class="reveal">
-          <p class="lead">The encryption most businesses rely on won't survive quantum computing. The deadline to replace it has already been set.</p>
+          <p class="lead">Today's encryption won't survive quantum computing, and the deadline to replace it is set.</p>
           <div class="cards two">
-            <div class="card"><span class="tag">The deadline</span><h3>The rules are moving down the supply chain.</h3><p class="fine">Key federal systems must move to post-quantum encryption by 2030. A contractor rule is coming next, and critical infrastructure, including finance and healthcare, gets federal help to follow.</p></div>
-            <div class="card"><span class="tag">The risk</span><h3>Your data is exposed today, not in 2030.</h3><p class="fine">Attackers record encrypted traffic now to decrypt later. Client records, health data and contracts that must stay private for years are already at risk.</p></div>
+            <div class="card"><span class="tag">The deadline</span><h3>Rules are moving down the supply chain</h3>
+              <ul class="ticks tight">
+                <li><b>2030:</b> key federal systems move to post-quantum</li>
+                <li><b>Next:</b> a rule for federal contractors</li>
+                <li><b>Then:</b> finance, healthcare and other critical infrastructure</li>
+              </ul></div>
+            <div class="card"><span class="tag">The risk</span><h3>Your data is exposed today, not in 2030</h3>
+              <ul class="ticks tight">
+                <li>Attackers record encrypted data now</li>
+                <li>They decrypt it once quantum computers can</li>
+                <li>Records that must stay private for years are already at risk</li>
+              </ul></div>
           </div>
         </div>
       </div>
@@ -160,7 +170,7 @@
                 <td data-label="Stay current">Rescan for drift and trigger a fresh audit when something conflicts.</td></tr>
             </tbody>
           </table>
-          <div class="callout"><p>Every plan starts from what your business can't afford to lose, mapped with FMA-C (Functional Mission Analysis – Cyber), a structured method from military cyber missions. Not a generic questionnaire.</p></div>
+          <div class="callout"><p>Every plan starts from what your business can't afford to lose, mapped with our own mission-analysis method, adapted from military cyber operations. Not a generic questionnaire.</p></div>
         </div>
       </div>
     </section>
@@ -215,7 +225,7 @@
         <h2>Team<small>Who we are</small></h2>
         <div class="reveal">
           <div class="cards">
-            <div class="card person"><div class="photo"><img src="assets/team/brianna.jpg?v=6" alt="Brianna Gabaldon" width="800" height="800" loading="lazy"></div><div class="who"><h3>Brianna Gabaldon</h3><a class="li" href="https://www.linkedin.com/in/brianna-gabaldon-328011149/" rel="noopener" aria-label="Brianna Gabaldon on LinkedIn">in</a></div><span class="role">CEO / Co-founder</span><p class="fine">Product manager at Microsoft for 5+ years, on the Windows 11 taskbar (1.4B+ devices). M.S. Global Security, Conflict and Cybercrime (NYU), with a thesis applying FMA-C. B.S. Computer Science, Virginia Tech.</p></div>
+            <div class="card person"><div class="photo"><img src="assets/team/brianna.jpg?v=6" alt="Brianna Gabaldon" width="800" height="800" loading="lazy"></div><div class="who"><h3>Brianna Gabaldon</h3><a class="li" href="https://www.linkedin.com/in/brianna-gabaldon-328011149/" rel="noopener" aria-label="Brianna Gabaldon on LinkedIn">in</a></div><span class="role">CEO / Co-founder</span><p class="fine">Product manager at Microsoft for 5+ years, on the Windows 11 taskbar (1.4B+ devices). M.S. Global Security, Conflict and Cybercrime (NYU), with a thesis on cyber risk in small organizations. B.S. Computer Science, Virginia Tech.</p></div>
             <div class="card person"><div class="photo"><img src="assets/team/daniel.jpg?v=6" alt="Daniel Vitenko" width="800" height="800" loading="lazy"></div><div class="who"><h3>Daniel Vitenko</h3><a class="li" href="https://www.linkedin.com/in/daniel-vitenko/" rel="noopener" aria-label="Daniel Vitenko on LinkedIn">in</a></div><span class="role">CTO / Co-founder</span><p class="fine">Formerly on applied research teams at MITRE, building AI workflows and API infrastructure. M.S. Quantum Science and Technology, Columbia (in progress). Independent quantum-circuit research.</p></div>
             <div class="card person"><div class="photo"><img src="assets/team/carolina.jpg?v=6" alt="Carolina Pernambuco Moron" width="800" height="800" loading="lazy"></div><div class="who"><h3>Carolina Pernambuco Moron</h3><a class="li" href="https://www.linkedin.com/in/carolina-pernambuco-moron/" rel="noopener" aria-label="Carolina Pernambuco Moron on LinkedIn">in</a></div><span class="role">CPO / Co-founder</span><p class="fine">Background in AML/KYC due diligence and UN Security Council counterterrorism work. Led five applied-AI builds at the Ethical Tech CoLab. M.S. Global Security, Conflict and Cybercrime, NYU (in progress).</p></div>
           </div>
