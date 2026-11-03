@@ -338,3 +338,11 @@ section.block.about-hero { padding-top: 150px; }
 @media (max-width: 900px) { .hero::after { background: color-mix(in srgb, var(--bg) 72%, transparent); } }
 .hero .sub { color: color-mix(in srgb, var(--fg) 82%, var(--fg-soft)); }
 .hero .eyebrow { font-size: clamp(0.85rem, 0.75rem + 0.3vw, 1rem); }
+/* hero: three areas */
+.hero h1 { max-width: none; font-size: clamp(2.2rem, 1rem + 2.6vw, 3.4rem); line-height: 1.02; }
+ul.areas { list-style: none; padding: 0; margin: 28px 0 32px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; max-width: 600px; }
+ul.areas li { display: flex; flex-direction: column; gap: 4px; padding-top: 14px; border-top: 1px solid var(--line-strong); }
+ul.areas svg { width: 22px; height: 22px; fill: none; stroke: var(--accent); stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; margin-bottom: 6px; }
+ul.areas b { font-size: var(--fs-0); font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--fg); }
+ul.areas span { font-size: var(--fs-1); line-height: 1.4; color: color-mix(in srgb, var(--fg) 82%, var(--fg-soft)); }
+@media (max-width: 520px) { ul.areas { grid-template-columns: minmax(0, 1fr); gap: 12px; } ul.areas li { flex-direction: row; flex-wrap: wrap; align-items: baseline; column-gap: 10px; padding-top: 10px; } ul.areas svg { margin: 0; align-self: center; } ul.areas span { flex-basis: 100%; } }

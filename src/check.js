@@ -207,7 +207,7 @@
     });
     html += '</div>';
     html += '<details class="sample"><summary>See a sample migration plan</summary>' +
-      '<p class="fine">For a simulated mid-size firm. Each step has a reason, and the timing follows the business.</p>' +
+      '<p class="fine">For a simulated company. Each step has a reason, and the timing follows the business.</p>' +
       '<table class="plan"><thead><tr><th>Week</th><th>System</th><th>Action</th><th>Why</th></tr></thead><tbody>' +
       '<tr><td>1\u20132</td><td>Customer VPN</td><td>Hybrid ML-KEM</td><td>Internet-facing; secret 10+ years</td></tr>' +
       '<tr><td>3</td><td>Payroll transfer</td><td>Hybrid key exchange</td><td>Regulated data; vendor ready</td></tr>' +
