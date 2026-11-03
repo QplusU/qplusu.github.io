@@ -22,7 +22,7 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap">
   <meta name="theme-color" content="#0B1426">
   <link rel="icon" href="assets/logo-mark.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="src/styles.css?v=20261103b">
+  <link rel="stylesheet" href="src/styles.css?v=20261103c">
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
@@ -93,9 +93,9 @@
 
     <section class="block" id="check">
       <div class="wrap cols">
-        <h2>Am I affected?<small>A two-minute check</small></h2>
+        <h2>Am I affected?<small>A quick check</small></h2>
         <div class="reveal">
-          <p class="lead">See which post-quantum rules most likely reach your organization, and how exposed your data is today.</p>
+          <p class="lead">Three taps to see which post-quantum rules most likely reach you.</p>
           <div class="q">
             <p class="qlabel">1 · Your sector</p>
             <div class="chips" data-group="sector">
@@ -108,7 +108,7 @@
             </div>
           </div>
           <div class="q">
-            <p class="qlabel">2 · Do any of these apply? <span class="opt">Pick all that fit</span></p>
+            <p class="qlabel">2 · Any of these? <span class="opt">Optional</span></p>
             <div class="chips" data-group="flags">
               <button type="button" data-value="fed" aria-pressed="false">We sell to the federal government</button>
               <button type="button" data-value="cards" aria-pressed="false">We take card payments</button>
@@ -117,7 +117,7 @@
             </div>
           </div>
           <div class="q">
-            <p class="qlabel">3 · How long must your most sensitive data stay private?</p>
+            <p class="qlabel">3 · How long must your data stay private?</p>
             <div class="chips" data-group="data">
               <button type="button" data-value="short" aria-pressed="false">Under 2 years</button>
               <button type="button" data-value="mid" aria-pressed="false">2 to 5 years</button>
@@ -126,22 +126,14 @@
             </div>
           </div>
           <div id="check-result" class="check-result" aria-live="polite" hidden></div>
-          <form class="signup" id="check-form" hidden>
-            <p class="qlabel wide">Check my business</p>
-            <label>Company<input type="text" name="company" autocomplete="organization" required></label>
-            <label>Size
-              <select name="size">
-                <option value="">Choose one</option>
-                <option>Under 50 people</option>
-                <option>50 to 250</option>
-                <option>250 to 1,000</option>
-                <option>1,000 to 5,000</option>
-                <option>Over 5,000</option>
-              </select>
-            </label>
-            <label>Work email<input type="email" name="email" autocomplete="email" required></label>
-            <label class="wide">Anything else we should know? <span class="opt">Optional</span><textarea name="note" rows="2"></textarea></label>
-            <div class="wide"><button class="btn solid" type="submit">Check my business</button></div>
+          <form class="checkform" id="check-form" hidden>
+            <p class="cta-line">Want to know what it means for your business?</p>
+            <div class="row">
+              <input type="text" name="company" autocomplete="organization" placeholder="Company" aria-label="Company" required>
+              <input type="email" name="email" autocomplete="email" placeholder="Work email" aria-label="Work email" required>
+              <button class="btn solid" type="submit">Check my business</button>
+            </div>
+            <p class="fine">A starting point, not legal advice. Rules as of November 2026.</p>
           </form>
         </div>
       </div>
@@ -288,7 +280,7 @@
 
   <script src="src/radar.js?v=20261012x" defer></script>
   <script src="src/wave.js?v=20261012m" defer></script>
-  <script src="src/check.js?v=20261103b" defer></script>
+  <script src="src/check.js?v=20261103c" defer></script>
   <script>
     (function(){
       var io = new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } }); }, { rootMargin: '0px 0px -10% 0px' });

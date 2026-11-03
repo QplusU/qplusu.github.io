@@ -130,16 +130,16 @@
   };
 
   var LEVELS = {
-    1: { label: 'Worth watching', text: 'No rule names your sector yet, but the standards your vendors and auditors follow are changing.' },
-    2: { label: 'Likely affected', text: 'Your sector most likely faces post-quantum expectations within the next few years.' },
-    3: { label: 'Most likely affected', text: 'Your organization most likely has a post-quantum deadline already on the way.' }
+    1: { label: 'Worth watching', short: 'No rule names your sector yet, but the standards are shifting.', text: 'No rule names your sector yet, but the standards your vendors and auditors follow are changing.' },
+    2: { label: 'Likely affected', short: 'Expect requirements within the next few years.', text: 'Your sector most likely faces post-quantum expectations within the next few years.' },
+    3: { label: 'Most likely affected', short: 'A deadline is most likely already on its way.', text: 'Your organization most likely has a post-quantum deadline already on the way.' }
   };
 
   var DATA = {
-    short: { label: 'Under 2 years', level: 1, text: 'Your data loses value quickly, so stolen-today risk is lower. The regulation clock and your vendors are the main reasons to plan.' },
-    mid:   { label: '2 to 5 years', level: 2, text: 'Data stolen today must stay private until about 2031. Attackers who record it now are betting on a quantum computer arriving within that window.' },
-    long:  { label: '5 to 10 years', level: 3, text: 'Data stolen today must stay private until as late as 2036. Experts surveyed by the Global Risk Institute put the chance of a code-breaking quantum computer within 10 years at 28–49%.' },
-    xlong: { label: '10+ years', level: 3, text: 'Data stolen today must stay private past 2036. The same experts put the chance of a code-breaking quantum computer within 15 years at 51–70%. This data is exposed now.' }
+    short: { label: 'Under 2 years', level: 1, head: 'Lower exposure', short: 'Your data loses value quickly.', text: 'Your data loses value quickly, so stolen-today risk is lower. The regulation clock and your vendors are the main reasons to plan.' },
+    mid:   { label: '2 to 5 years', level: 2, head: 'Some exposure', short: 'Data stolen today must stay private until about 2031.', text: 'Data stolen today must stay private until about 2031. Attackers who record it now are betting on a quantum computer arriving within that window.' },
+    long:  { label: '5 to 10 years', level: 3, head: 'Exposed today', short: 'Experts give a 28\u201349% chance of a code-breaking quantum computer within 10 years.', text: 'Data stolen today must stay private until as late as 2036. Experts surveyed by the Global Risk Institute put the chance of a code-breaking quantum computer within 10 years at 28–49%.' },
+    xlong: { label: '10+ years', level: 3, head: 'Exposed today', short: 'Experts give a 51\u201370% chance of a code-breaking quantum computer within 15 years.', text: 'Data stolen today must stay private past 2036. The same experts put the chance of a code-breaking quantum computer within 15 years at 51–70%. This data is exposed now.' }
   };
   var DATA_SRC = { src: 'Global Risk Institute, Quantum Threat Timeline Report (March 2026)', url: 'https://globalriskinstitute.org/publication/quantum-threat-timeline-report-2025b/' };
 
@@ -184,22 +184,17 @@
       return;
     }
     var r = compute(), lv = LEVELS[r.level], d = DATA[state.data];
-    var html = '';
-    html += '<div class="verdict lv' + r.level + '"><span class="tag">Regulation clock</span><h3>' + esc(lv.label) + '</h3><p>' + esc(lv.text) + '</p></div>';
-    html += '<ul class="rules">';
+    var html = '<div class="clocks">' +
+      '<div class="verdict lv' + r.level + '"><span class="tag">Regulation clock</span><h3>' + esc(lv.label) + '</h3><p>' + esc(lv.short) + '</p></div>' +
+      '<div class="verdict lv' + d.level + '"><span class="tag">Attacker clock</span><h3>' + esc(d.head) + '</h3><p>' + esc(d.short) + ' <a class="src" href="' + DATA_SRC.url + '" rel="noopener" target="_blank">Source</a></p></div>' +
+      '</div>';
+    html += '<p class="qlabel">What applies to you <span class="opt">Tap for details</span></p><div class="rules">';
     r.ids.forEach(function (id) {
       var x = RULES[id];
-      html += '<li><div class="rtop"><b>' + esc(x.title) + '</b><span class="status">' + esc(x.status) + '</span></div>' +
-        '<p class="fine when">' + esc(x.date) + '</p><p>' + esc(x.text) + '</p>' +
-        '<a class="fine src" href="' + esc(x.url) + '" rel="noopener" target="_blank">Source: ' + esc(x.src) + '</a></li>';
+      html += '<details><summary><b>' + esc(x.title) + '</b><span class="status">' + esc(x.status) + '</span></summary>' +
+        '<p><span class="when">' + esc(x.date) + '.</span> ' + esc(x.text) + ' <a class="src" href="' + esc(x.url) + '" rel="noopener" target="_blank">Source</a></p></details>';
     });
-    html += '</ul>';
-    html += '<div class="verdict lv' + d.level + '"><span class="tag">Attacker clock · harvest now, decrypt later</span><h3>' + (d.level >= 3 ? 'Exposed today' : d.level === 2 ? 'Some exposure today' : 'Lower exposure today') + '</h3><p>' + esc(d.text) + '</p><a class="fine src" href="' + DATA_SRC.url + '" rel="noopener" target="_blank">Source: ' + esc(DATA_SRC.src) + '</a></div>';
-    var cta = (r.level >= 2 || d.level >= 3)
-      ? 'This most likely applies to you. Tell us about your business and we’ll follow up with what it means for you.'
-      : 'Even without a rule today, it’s worth knowing where you stand. Tell us about your business, or get the playbook.';
-    html += '<p class="cta-line">' + esc(cta) + '</p>';
-    html += '<p class="fine">A starting point, not legal advice. Rules as of November 2026. Confirm what applies with your counsel.</p>';
+    html += '</div>';
     out.innerHTML = html;
     out.hidden = false; form.hidden = false;
   }
@@ -217,10 +212,9 @@
     e.preventDefault();
     var r = compute(), fd = new FormData(form);
     var flags = Object.keys(state.flags).filter(function (k) { return state.flags[k]; }).join(', ') || 'none';
-    var body = 'Readiness check\n\nCompany: ' + (fd.get('company') || '') + '\nSize: ' + (fd.get('size') || '') + '\nEmail: ' + (fd.get('email') || '') +
+    var body = 'Readiness check\n\nCompany: ' + (fd.get('company') || '') + '\nEmail: ' + (fd.get('email') || '') +
       '\n\nSector: ' + SECTORS[state.sector].label + '\nAlso applies: ' + flags + '\nData must stay private: ' + DATA[state.data].label +
-      '\nResult: ' + LEVELS[r.level].label + '\nRules shown: ' + r.ids.map(function (id) { return RULES[id].title; }).join('; ') +
-      '\n\nAnything else: ' + (fd.get('note') || '');
+      '\nResult: ' + LEVELS[r.level].label + '\nRules shown: ' + r.ids.map(function (id) { return RULES[id].title; }).join('; ') ;
     location.href = 'mailto:info@qplusu.com?subject=' + encodeURIComponent('Readiness check: ' + (fd.get('company') || 'my business')) + '&body=' + encodeURIComponent(body);
   });
 })();
