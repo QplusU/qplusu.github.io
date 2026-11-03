@@ -294,3 +294,17 @@ form.signup p { margin: 0; }
 .checkform input:focus { outline: none; border-color: var(--accent); }
 .checkform button { cursor: pointer; font-family: var(--font); }
 .checkform .fine { margin: 10px 0 0; }
+/* business / legal / security map */
+table.matrix { border-collapse: collapse; width: 100%; max-width: 900px; font-size: var(--fs-1); margin: 8px 0 4px; }
+table.matrix th, table.matrix td { text-align: left; vertical-align: top; padding: 14px 14px 14px 0; border-top: 1px solid var(--line); }
+table.matrix tbody tr:last-child th, table.matrix tbody tr:last-child td { border-bottom: 1px solid var(--line); }
+table.matrix thead th { border-top: 0; font-size: var(--fs-0); font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); }
+table.matrix tbody th { font-size: var(--fs-0); font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--fg); width: 16%; }
+table.matrix td { color: var(--fg-soft); width: 28%; }
+@media (max-width: 700px) {
+  table.matrix thead { display: none; }
+  table.matrix, table.matrix tbody, table.matrix tr, table.matrix th, table.matrix td { display: block; width: auto; }
+  table.matrix tbody tr { border-top: 1px solid var(--line); padding: 10px 0 6px; }
+  table.matrix tbody th, table.matrix td { border: 0 !important; padding: 4px 0; }
+  table.matrix td::before { content: attr(data-label) " · "; color: var(--accent); font-weight: 600; }
+}

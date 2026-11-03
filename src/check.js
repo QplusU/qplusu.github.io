@@ -135,22 +135,26 @@
     3: { label: 'Most likely affected', short: 'A deadline is most likely already on its way.', text: 'Your organization most likely has a post-quantum deadline already on the way.' }
   };
 
+  // What data they hold, mapped to how long it stays sensitive. The longest-lived type picked drives the attacker clock.
+  var Q10 = 'Experts give a 28\u201349% chance of a code-breaking quantum computer within 10 years.';
+  var Q15 = 'Experts give a 51\u201370% chance of a code-breaking quantum computer within 15 years.';
   var DATA = {
-    short: { label: 'Under 2 years', level: 1, head: 'Lower exposure', short: 'Your data loses value quickly.', text: 'Your data loses value quickly, so stolen-today risk is lower. The regulation clock and your vendors are the main reasons to plan.' },
-    mid:   { label: '2 to 5 years', level: 2, head: 'Some exposure', short: 'Data stolen today must stay private until about 2031.', text: 'Data stolen today must stay private until about 2031. Attackers who record it now are betting on a quantum computer arriving within that window.' },
-    long:  { label: '5 to 10 years', level: 3, head: 'Exposed today', short: 'Experts give a 28\u201349% chance of a code-breaking quantum computer within 10 years.', text: 'Data stolen today must stay private until as late as 2036. Experts surveyed by the Global Risk Institute put the chance of a code-breaking quantum computer within 10 years at 28–49%.' },
-    xlong: { label: '10+ years', level: 3, head: 'Exposed today', short: 'Experts give a 51\u201370% chance of a code-breaking quantum computer within 15 years.', text: 'Data stolen today must stay private past 2036. The same experts put the chance of a code-breaking quantum computer within 15 years at 51–70%. This data is exposed now.' }
+    health: { rank: 4, level: 3, label: 'Health or medical records', life: 'stay sensitive for decades', q: Q15 },
+    ip:     { rank: 4, level: 3, label: 'Contracts, IP or trade secrets', life: 'stay sensitive for 10+ years', q: Q15 },
+    fin:    { rank: 3, level: 3, label: 'Financial or account data', life: 'stays sensitive for 7+ years', q: Q10 },
+    pii:    { rank: 2, level: 3, label: 'Customer personal information', life: 'stays sensitive for 5 to 10 years', q: Q10 },
+    short:  { rank: 1, level: 1, label: 'Mostly short-lived data', life: 'loses value quickly', q: 'Stolen-today risk is lower, so the regulation clock and your vendors are the main reasons to plan.' }
   };
   var DATA_SRC = { src: 'Global Risk Institute, Quantum Threat Timeline Report (March 2026)', url: 'https://globalriskinstitute.org/publication/quantum-threat-timeline-report-2025b/' };
 
-  var state = { sector: null, flags: {}, data: null };
+  var state = { sector: null, flags: {}, data: {} };
   var out = document.getElementById('check-result');
   var form = document.getElementById('check-form');
 
   function pick(group, value, btn) {
-    if (group === 'flags') {
-      state.flags[value] = !state.flags[value];
-      btn.setAttribute('aria-pressed', state.flags[value] ? 'true' : 'false');
+    if (group === 'flags' || group === 'data') {
+      state[group][value] = !state[group][value];
+      btn.setAttribute('aria-pressed', state[group][value] ? 'true' : 'false');
     } else {
       state[group] = value;
       root.querySelectorAll('[data-group="' + group + '"] button').forEach(function (b) {
@@ -178,15 +182,22 @@
     return { level: level, ids: ids };
   }
 
+  function picked(obj) { return Object.keys(obj).filter(function (k) { return obj[k]; }); }
+  function topData() {
+    var best = null;
+    picked(state.data).forEach(function (k) { if (!best || DATA[k].rank > DATA[best].rank) best = k; });
+    return best;
+  }
+
   function render() {
-    if (!state.sector || !state.data) {
+    if (!state.sector || !topData()) {
       out.hidden = true; form.hidden = true;
       return;
     }
-    var r = compute(), lv = LEVELS[r.level], d = DATA[state.data];
+    var r = compute(), lv = LEVELS[r.level], d = DATA[topData()];
     var html = '<div class="clocks">' +
       '<div class="verdict lv' + r.level + '"><span class="tag">Regulation clock</span><h3>' + esc(lv.label) + '</h3><p>' + esc(lv.short) + '</p></div>' +
-      '<div class="verdict lv' + d.level + '"><span class="tag">Attacker clock</span><h3>' + esc(d.head) + '</h3><p>' + esc(d.short) + ' <a class="src" href="' + DATA_SRC.url + '" rel="noopener" target="_blank">Source</a></p></div>' +
+      '<div class="verdict lv' + d.level + '"><span class="tag">Attacker clock</span><h3>' + (d.level >= 3 ? 'Exposed today' : 'Lower exposure') + '</h3><p>' + esc(d.label + ' ' + d.life + '. ' + d.q) + ' <a class="src" href="' + DATA_SRC.url + '" rel="noopener" target="_blank">Source</a></p></div>' +
       '</div>';
     html += '<p class="qlabel">What applies to you <span class="opt">Tap for details</span></p><div class="rules">';
     r.ids.forEach(function (id) {
@@ -205,7 +216,7 @@
     function press(group, v) { var b = root.querySelector('[data-group="' + group + '"] button[data-value="' + v + '"]'); if (b) b.click(); }
     if (q.get('sector')) press('sector', q.get('sector'));
     (q.get('flags') || '').split(',').filter(Boolean).forEach(function (v) { press('flags', v); });
-    if (q.get('data')) press('data', q.get('data'));
+    (q.get('data') || '').split(',').filter(Boolean).forEach(function (v) { press('data', v); });
   })();
 
   form.addEventListener('submit', function (e) {
@@ -213,7 +224,7 @@
     var r = compute(), fd = new FormData(form);
     var flags = Object.keys(state.flags).filter(function (k) { return state.flags[k]; }).join(', ') || 'none';
     var body = 'Readiness check\n\nCompany: ' + (fd.get('company') || '') + '\nEmail: ' + (fd.get('email') || '') +
-      '\n\nSector: ' + SECTORS[state.sector].label + '\nAlso applies: ' + flags + '\nData must stay private: ' + DATA[state.data].label +
+      '\n\nSector: ' + SECTORS[state.sector].label + '\nAlso applies: ' + flags + '\nData held: ' + (picked(state.data).map(function (k) { return DATA[k].label; }).join(', ') || 'not given') +
       '\nResult: ' + LEVELS[r.level].label + '\nRules shown: ' + r.ids.map(function (id) { return RULES[id].title; }).join('; ') ;
     location.href = 'mailto:info@qplusu.com?subject=' + encodeURIComponent('Readiness check: ' + (fd.get('company') || 'my business')) + '&body=' + encodeURIComponent(body);
   });

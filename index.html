@@ -22,7 +22,7 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap">
   <meta name="theme-color" content="#0B1426">
   <link rel="icon" href="assets/logo-mark.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="src/styles.css?v=20261103c">
+  <link rel="stylesheet" href="src/styles.css?v=20261103d">
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
@@ -46,8 +46,6 @@
       </div>
     </nav>
   </div>
-
-  <div class="lens" id="lens" aria-hidden="true"><span>The known unknown</span></div>
 
   <main id="main" tabindex="-1">
     <section class="hero" aria-label="Introduction">
@@ -117,12 +115,13 @@
             </div>
           </div>
           <div class="q">
-            <p class="qlabel">3 · How long must your data stay private?</p>
+            <p class="qlabel">3 · What data do you hold? <span class="opt">Pick all that fit</span></p>
             <div class="chips" data-group="data">
-              <button type="button" data-value="short" aria-pressed="false">Under 2 years</button>
-              <button type="button" data-value="mid" aria-pressed="false">2 to 5 years</button>
-              <button type="button" data-value="long" aria-pressed="false">5 to 10 years</button>
-              <button type="button" data-value="xlong" aria-pressed="false">10+ years</button>
+              <button type="button" data-value="health" aria-pressed="false">Health or medical records</button>
+              <button type="button" data-value="fin" aria-pressed="false">Financial or account data</button>
+              <button type="button" data-value="ip" aria-pressed="false">Contracts, IP or trade secrets</button>
+              <button type="button" data-value="pii" aria-pressed="false">Customer personal information</button>
+              <button type="button" data-value="short" aria-pressed="false">Mostly short-lived data</button>
             </div>
           </div>
           <div id="check-result" class="check-result" aria-live="polite" hidden></div>
@@ -157,40 +156,27 @@
 
     <section class="block" id="how">
       <div class="wrap cols">
-        <h2>How we help<small>Scan, sequence, stay current</small></h2>
+        <h2>How we help<small>Business, legal and security</small></h2>
         <div class="reveal">
-          <div class="cards">
-            <div class="card"><span class="tag">01 · Scan</span><h3>See what you have</h3><p class="fine">A full inventory of quantum-vulnerable encryption across your systems and vendor links, collected inside your environment.</p></div>
-            <div class="card"><span class="tag">02 · Sequence</span><h3>Know what to do first</h3><p class="fine">One migration schedule that weighs business impact, legal deadlines and technical risk, timed around your business calendar.</p></div>
-            <div class="card"><span class="tag">03 · Stay current</span><h3>Stay ready</h3><p class="fine">We keep scanning for drift and new rules after the migration, and update your plan when something changes.</p></div>
-          </div>
-          <div class="card plan" style="margin-top:20px">
-            <div class="cardtop"><span class="tag">Example plan · simulated mid-size firm</span><span class="status proto">Example</span></div>
-            <table class="plan">
-              <thead><tr><th>Week</th><th>System</th><th>Action</th><th>Why</th></tr></thead>
-              <tbody>
-                <tr><td>1–2</td><td>Customer VPN</td><td>Hybrid ML-KEM</td><td>Internet-facing; secret 10+ years</td></tr>
-                <tr><td>3</td><td>Payroll transfer</td><td>Hybrid key exchange</td><td>Regulated data; vendor ready</td></tr>
-                <tr><td>4</td><td>None</td><td>Change freeze</td><td>Quarter close on calendar</td></tr>
-                <tr><td>5</td><td>Internal wiki</td><td>Swap at renewal</td><td>Low exposure; batch it</td></tr>
-                <tr><td>7</td><td>Partner EDI link</td><td>Hold</td><td>Vendor not ready; flagged</td></tr>
-              </tbody>
-            </table>
-          </div>
+          <p class="lead">A migration has to work for the business, the lawyers and the security team at once. We plan for all three.</p>
+          <table class="matrix">
+            <thead><tr><th></th><th>01 · Scan</th><th>02 · Sequence</th><th>03 · Stay current</th></tr></thead>
+            <tbody>
+              <tr><th>Business</th>
+                <td data-label="Scan">Find the systems that carry revenue and sensitive data.</td>
+                <td data-label="Sequence">Time every change around your calendar, so nothing cuts over during quarter close or a launch.</td>
+                <td data-label="Stay current">Re-plan when the business changes: a new vendor, product or acquisition.</td></tr>
+              <tr><th>Legal</th>
+                <td data-label="Scan">Map the deadlines and contract terms that reach each system.</td>
+                <td data-label="Sequence">Order the work so the earliest obligations are met first.</td>
+                <td data-label="Stay current">Track new rules and flag conflicts for your counsel.</td></tr>
+              <tr><th>Security</th>
+                <td data-label="Scan">Inventory quantum-vulnerable encryption across systems and vendor links, inside your environment.</td>
+                <td data-label="Sequence">Protect the most exposed, longest-lived data first, with hybrid encryption so nothing breaks.</td>
+                <td data-label="Stay current">Rescan for drift and trigger a fresh audit when something conflicts.</td></tr>
+            </tbody>
+          </table>
           <div class="callout"><p>Every plan starts from what your business can't afford to lose, mapped with FMA-C (Functional Mission Analysis – Cyber), a structured method from military cyber missions. Not a generic questionnaire.</p></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="block" id="who">
-      <div class="wrap cols">
-        <h2>Who it's for<small>Built for mid-size teams</small></h2>
-        <div class="reveal">
-          <p class="lead">Large-company obligations, without a large security team.</p>
-          <div class="cards two">
-            <div class="card"><span class="tag">Financial services and healthcare</span><h3>Regulated organizations in New York</h3><p class="fine">Banks, lenders, insurers, practices and health systems that hold data which must stay private for years.</p></div>
-            <div class="card"><span class="tag">Managed service providers</span><h3>MSPs and MSSPs</h3><p class="fine">If your clients will ask you about post-quantum readiness, we would like to help you answer.</p></div>
-          </div>
         </div>
       </div>
     </section>
@@ -280,23 +266,11 @@
 
   <script src="src/radar.js?v=20261012x" defer></script>
   <script src="src/wave.js?v=20261012m" defer></script>
-  <script src="src/check.js?v=20261103c" defer></script>
+  <script src="src/check.js?v=20261103d" defer></script>
   <script>
     (function(){
       var io = new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } }); }, { rootMargin: '0px 0px -10% 0px' });
       document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
-      // telescope lens: eased pointer follow, hidden until the pointer moves and when it leaves
-      (function(){
-        var root = document.documentElement;
-        var dbg = /[?&]lens=(\d+),(\d+)/.exec(location.search);
-        if (dbg) { root.style.setProperty('--lx', dbg[1] + 'px'); root.style.setProperty('--ly', dbg[2] + 'px'); root.style.setProperty('--lens', '1'); return; }
-        if (!window.matchMedia('(hover: hover)').matches) return;
-        var tx = -1000, ty = -1000, x = -1000, y = -1000, on = false, raf = 0;
-        function tick(){ x += (tx - x) * 0.18; y += (ty - y) * 0.18; root.style.setProperty('--lx', x.toFixed(1) + 'px'); root.style.setProperty('--ly', y.toFixed(1) + 'px'); raf = (Math.abs(tx - x) + Math.abs(ty - y) > 0.3) ? requestAnimationFrame(tick) : 0; }
-        window.addEventListener('pointermove', function(e){ tx = e.clientX; ty = e.clientY; if (!on) { on = true; x = tx; y = ty; root.style.setProperty('--lens', '1'); } if (!raf) raf = requestAnimationFrame(tick); }, { passive: true });
-        document.addEventListener('pointerleave', function(){ on = false; root.style.setProperty('--lens', '0'); });
-        document.addEventListener('visibilitychange', function(){ if (document.hidden) { on = false; root.style.setProperty('--lens', '0'); } });
-      })();
       // galaxy: full in the hero, dimmed once the reader is in the text
       (function(){
         var root = document.documentElement, hero = document.querySelector('.hero');
