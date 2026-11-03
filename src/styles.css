@@ -339,10 +339,27 @@ section.block.about-hero { padding-top: 150px; }
 .hero .sub { color: color-mix(in srgb, var(--fg) 82%, var(--fg-soft)); }
 .hero .eyebrow { font-size: clamp(0.85rem, 0.75rem + 0.3vw, 1rem); }
 /* hero: three areas */
-.hero h1 { max-width: none; font-size: clamp(2.2rem, 1rem + 2.6vw, 3.4rem); line-height: 1.02; }
+
 ul.areas { list-style: none; padding: 0; margin: 28px 0 32px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; max-width: 600px; }
 ul.areas li { display: flex; flex-direction: column; gap: 4px; padding-top: 14px; border-top: 1px solid var(--line-strong); }
 ul.areas svg { width: 22px; height: 22px; fill: none; stroke: var(--accent); stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; margin-bottom: 6px; }
 ul.areas b { font-size: var(--fs-0); font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--fg); }
 ul.areas span { font-size: var(--fs-1); line-height: 1.4; color: color-mix(in srgb, var(--fg) 82%, var(--fg-soft)); }
 @media (max-width: 520px) { ul.areas { grid-template-columns: minmax(0, 1fr); gap: 12px; } ul.areas li { flex-direction: row; flex-wrap: wrap; align-items: baseline; column-gap: 10px; padding-top: 10px; } ul.areas svg { margin: 0; align-self: center; } ul.areas span { flex-basis: 100%; } }
+/* scaling audit */
+.topbar { padding: 16px max(24px, calc((100vw - 1240px) / 2 + 24px)); }
+.brand svg { width: 44px; height: 44px; }
+@media (min-width: 901px) { .hero-grid { grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); } }
+.hero h1 { max-width: none; font-size: clamp(2.3rem, 0.9rem + 3.3vw, 4rem); line-height: 1.02; letter-spacing: -0.035em; }
+@media (max-width: 900px) {
+  .topbar { padding: 12px 16px; }
+  .brand svg { width: 34px; height: 34px; }
+  .pill { padding: 4px; }
+  .pill .cta { padding: 8px 12px; font-size: 0.75rem; }
+  .pill button { width: 30px; height: 30px; }
+  .hero { padding-block: 112px 48px; }
+  ul.areas { margin: 22px 0 26px; }
+  .hero .btns { flex-direction: column; align-items: stretch; max-width: 320px; }
+  .hero .btns .btn { text-align: center; }
+}
+@media (max-width: 520px) { ul.areas { gap: 0; } ul.areas li { padding: 10px 0; } }
