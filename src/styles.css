@@ -347,7 +347,7 @@ ul.areas b { font-size: var(--fs-0); font-weight: 600; letter-spacing: 0.12em; t
 ul.areas span { font-size: var(--fs-1); line-height: 1.4; color: color-mix(in srgb, var(--fg) 82%, var(--fg-soft)); }
 @media (max-width: 520px) { ul.areas { grid-template-columns: minmax(0, 1fr); gap: 12px; } ul.areas li { flex-direction: row; flex-wrap: wrap; align-items: baseline; column-gap: 10px; padding-top: 10px; } ul.areas svg { margin: 0; align-self: center; } ul.areas span { flex-basis: 100%; } }
 /* scaling audit */
-.topbar { padding: 16px max(24px, calc((100vw - 1240px) / 2 + 24px)); }
+
 .brand svg { width: 44px; height: 44px; }
 @media (min-width: 901px) { .hero-grid { grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); } }
 .hero h1 { max-width: none; font-size: clamp(2.3rem, 0.9rem + 3.3vw, 4rem); line-height: 1.02; letter-spacing: -0.035em; }
@@ -363,3 +363,15 @@ ul.areas span { font-size: var(--fs-1); line-height: 1.4; color: color-mix(in sr
   .hero .btns .btn { text-align: center; }
 }
 @media (max-width: 520px) { ul.areas { gap: 0; } ul.areas li { padding: 10px 0; } }
+/* wide screens: smaller fixed margins, content and hero scale up */
+@media (min-width: 901px) {
+  :root { --gutter: clamp(24px, 4.5vw, 72px); --maxw: 1680px; }
+  .wrap { max-width: var(--maxw); padding-inline: var(--gutter); }
+  .topbar { padding: 16px max(var(--gutter), calc((100vw - var(--maxw)) / 2 + var(--gutter))); }
+  .hero { min-height: min(100svh, 980px); padding-block: 100px 60px; }
+  .hero h1 { font-size: clamp(2.4rem, 0.6rem + 3.9vw, 5rem); }
+  ul.areas { max-width: 680px; }
+  .hero-fig { max-width: 680px; }
+}
+@media (min-width: 901px) and (max-width: 1199px) { .hero-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); } }
+.hero-fig .ring-key span { white-space: nowrap; }
