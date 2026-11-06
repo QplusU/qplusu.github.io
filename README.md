@@ -113,7 +113,7 @@ The page is one column of full-width bands, each with its content in a centred w
 │                  Let's talk.  [GitHub] [Issue]       │  centred call to action
 │              ~~~ particle wave with hoop ~~~         │
 ├──────────────────────────────────────────────────────┤
-│  principle  ·  © 2026 Q+U · source · logo downloads   │  footer
+│  principle  ·  © 2026 Q+U · Photo: NASA               │  footer
 │  NASA credit and the unknown / known-unknown line     │
 └──────────────────────────────────────────────────────┘
 ```
@@ -159,7 +159,7 @@ They combine: `?theme=dark&t=7000&lens=520,430`.
 - Copy: edit `index.html` directly.
 - Cache: the three `?v=` suffixes on the stylesheet and scripts in `index.html` are bumped by hand when those files change.
 - Photos: 800 x 800 JPEG on grey `#DCDAD4`, head near the top edge, face about 38% of the frame height. The site renders them in black and white.
-- Logo: `assets/brand/` holds the mark as SVG and transparent PNGs. Linked from the footer for download.
+- Logo: `assets/brand/` holds the mark as SVG and transparent PNGs.
 
 ## Credits
 
