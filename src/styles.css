@@ -373,3 +373,8 @@ ul.areas span { font-size: var(--fs-1); line-height: 1.4; color: color-mix(in sr
 }
 @media (min-width: 901px) and (max-width: 1199px) { .hero-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); } }
 .hero-fig .ring-key span { white-space: nowrap; }
+/* desktop hero headline: always two lines. The longest line is ~11.5em, so size the type from the column, not the viewport */
+@media (min-width: 901px) {
+  .hero-inner { container-type: inline-size; }
+  .hero h1 { font-size: min(clamp(2.4rem, 0.6rem + 3.9vw, 5rem), 8.5cqi); white-space: nowrap; }
+}
